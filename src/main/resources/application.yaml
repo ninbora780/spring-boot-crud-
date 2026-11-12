@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: M2-restapi
+server:
+  port: 20000
+
