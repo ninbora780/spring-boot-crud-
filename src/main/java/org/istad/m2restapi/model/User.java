@@ -1,20 +1,34 @@
 package org.istad.m2restapi.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import jakarta.persistence.*;
+import lombok.*;
 import java.util.UUID;
 
+@Setter
+@Getter
+@Entity
+@Table(name = "m2_users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Column(length = 50, nullable = false)
     private String name;
+
+    @Column(length = 32, nullable = false)
     private String gender;
+
+    @Column(length = 100, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private Boolean isActive = true;
 }
